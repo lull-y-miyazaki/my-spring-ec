@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CustomerInfo</title>
+	<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+	<!--/* headerテンプレートの再利用 */-->
+	<header th:replace="~{header}"></header>
+
+	<main class="cart">
+		<h2 class="page-title">ご注文商品</h2>
+		<div class="cart__container">
+
+			<!--/* cart-itemテンプレートの再利用 */-->
+			<span th:replace="~{cartItem}"></span>
+		</div>
+
+		<h2 class="page-title">お客様情報入力</h2>
+
+		<div class="customer__container">
+			<form action="/order/confirm" method="post">
+				<table class="customer-table">
+					<tr class="customer-table__row">
+						<th class="customer-table__header customer-table__header--name">お名前</th>
+						<td class="customer-table__data">
+							<input type="text" name="name">
+						</td>
+					</tr>
+					<tr class="customer-table__row">
+						<th class="customer-table__header customer-table__header--address">住所</th>
+						<td class="customer-table__data">
+							<input type="text" name="address">
+						</td>
+					</tr>
+					<tr class="customer-table__row">
+						<th class="customer-table__header customer-table__header--tel">電話番号</th>
+						<td class="customer-table__data">
+							<input type="text" name="tel">
+						</td>
+					</tr>
+					<tr class="customer-table__row">
+						<th class="customer-table__header customer-table__header--email">e-mail</th>
+						<td class="customer-table__data">
+							<input type="text" name="email">
+						</td>
+					</tr>
+				</table>
+				<button class="form__button">確認画面へ</button>
+			</form>
+		</div>
+
+	</main>
+</body>
+
+</html>
+
+</html>

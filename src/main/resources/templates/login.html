@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ログイン</title>
+	<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+	<!--/* headerテンプレートの再利用 */-->
+	<header th:replace="~{header}"></header>
+
+	<main class="login">
+		<h2 class="login__title">login</h2>
+
+		<div class="login__container">
+			<form action="/login" method="post">
+				<div class="login__error-message" th:text="${message}"></div>
+				<div class="login__form">
+					<input type="text" name="name" class="login__input" placeholder="名前" />
+				</div>
+				<button class="login__button">ログイン</button>
+			</form>
+		</div>
+	</main>
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<header class="header">
+	<div class="header__container">
+		<div class="header__title">
+			<h1><a href="/items">サンプルショッピング</a></h1>
+		</div>
+
+		<!--/* ログインしている場合はinfoブロックを表示させる */-->
+		<th:block th:if="${@account != null and not #strings.isEmpty(@account.name)}">
+			<div class="header__info">
+				<span class="header__info-user-name" th:text="|こんにちは、 ${@account.name} さん|"></span>
+				<div class="header__info-logout-btn">
+					<a href="/logout">ログアウト</a>
+				</div>
+			</div>
+		</th:block>
+	</div>
+</header>

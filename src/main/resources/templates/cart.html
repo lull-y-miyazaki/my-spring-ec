@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Cart</title>
+	<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+
+	<!--/* headerテンプレートの再利用 */-->
+	<header th:replace="~{header}"></header>
+
+	<main class="cart">
+		<h2 class="page-title">カート商品</h2>
+		<div class="cart__container">
+
+			<!--/* cart-itemテンプレートの再利用 */-->
+			<span th:replace="~{cartItem}"></span>
+			
+			<form action="/order">
+				<button class="form__button">注文する</button>
+			</form>
+		</div>
+	</main>
+
+</body>
+
+</html>

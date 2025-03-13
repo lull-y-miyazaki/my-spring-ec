@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>商品一覧</title>
+	<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+	<!--/* headerテンプレートの再利用 */-->
+	<header th:replace="~{header}"></header>
+
+	<main class="items">
+		<nav class="items__nav">
+			<div class="items__categories">
+				<a href="/items">全商品</a>
+				<a th:each="category:${categories}" th:href="@{/items(categoryId=${category.id})}">
+					<span th:text="${category.name}"></span>
+				</a>
+			</div>
+			<div class="items__cart">
+				<a href="/cart">カートを見る</a>
+			</div>
+		</nav>
+
+		<div class="items__container">
+			<table class="items-table">
+				<tr class="items-table__row">
+					<th class="items-table__header items-table__header--id">NO</th>
+					<th class="items-table__header items-table__header--name">商品名</th>
+					<th class="items-table__header items-table__header--price">価格</th>
+					<th class="items-table__header items-table__header--button"></th>
+				</tr>
+				<tr th:each="item:${items}" class="items-table__row">
+					<td th:text="${item.id}" class="items-table__data items-table__data--id"></td>
+					<td th:text="${item.name}" class="items-table__data items-table__data--name"></td>
+					<!--/* #numbers.formatInteger /*段の表示を3桁ごとに区切る(#numbersは、Thymeleafのユーティリティオブジェクト) */-->
+					<td th:text="${#numbers.formatInteger(item.price, 3, 'COMMA') + '円'}" 
+					class="items-table__data items-table__data--price"></td>
+					<td class="items-table__data items-table__data--button">
+						<form action="/cart/add" method="post">
+							<input type="hidden" name="itemId" th:value="${item.id}">
+							<button class="items-table__button--add">カートに追加</button>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</main>
+
+</body>
+
+</html>

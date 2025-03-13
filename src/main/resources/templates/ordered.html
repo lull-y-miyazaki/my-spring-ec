@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>注文完了</title>
+	<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+	<!--/* headerテンプレートの再利用 */-->
+	<header th:replace="~{header}"></header>
+
+	<main class="ordered">
+		<div class="ordered__container">
+			<div class="ordered__box">
+				<h2 class="ordered__title">ご注文ありがとうございました。</h2>
+				<div class="ordered__content">
+					お客様の注文番号は
+					<h2>
+						<span th:text="${orderNumber}" class="ordered__number"></span>
+					</h2>
+					になります。
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>
